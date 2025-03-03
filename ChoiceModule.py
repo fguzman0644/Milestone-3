@@ -28,10 +28,10 @@ class AdventureGame:
             
         user_choice = input("Enter the number of your choise: ").strip()
 
-        if user_choice.isdigit() and 1 <= int(user_choise) <= len(current_options):
+        if user_choice.isdigit() and 1 <= int(user_choice) <= len(current_options):
 ##States if choice is between 1 and number of options on the list
             selected_choice = current_options[int(user_choice) - 1]
-            self.process_choise(selected choice)
+            self.process_choice(selected_choice)
         else:
             print("Invalid choice! Please try again")
             self.choice_module() #Asks again for valid choice
