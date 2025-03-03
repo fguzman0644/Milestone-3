@@ -4,8 +4,8 @@
 #Start Module
 
 import time
-import battle_module
-import choice_module
+import BattleModule
+import ChoiceModule
 
 # Declare global variable
 player_name = ""
