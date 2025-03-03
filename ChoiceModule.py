@@ -22,7 +22,7 @@ class AdventureGame:
         current_options.append("Leave location")
         current_options.append("Return to last chapter")
 
-        for index, option in enumerate(current-options, start=1):
+        for index, option in enumerate(current_options, start=1):
 ##Had to Google how to tackle this section, decided to use enumerate to loop through options starting at 1 so user sees numbered list
             print(f"{index}.{option}")
             
