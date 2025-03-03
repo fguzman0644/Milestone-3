@@ -6,14 +6,14 @@
 import random, ChoiceModule, Main
 
 def battle(restart_chapter):
-    print("[A battle begins!]"
+    print("[A battle begins!]")
     result = random.randint(1, 100)
     if result %2 == 1:
         print("You won the battle!")
         ChoiceModule()
     else:
         print("You lost the battle.")
-        input(print("Game Over. (Try Again or Quit)")).strip().lower()
+        choice = input(print("Game Over. (Try Again or Quit)")).strip().lower()
         if choice == 'try again':
             restart_chapter()
         elif choice == 'quit':
@@ -21,3 +21,4 @@ def battle(restart_chapter):
         else:
             print("Invalid choice! Please try again.")
             
+ChoiceModule.AdventureGame.choice_module()

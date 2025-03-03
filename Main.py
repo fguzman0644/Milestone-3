@@ -3,7 +3,7 @@
 
 #Main module that links all other ones together
 
-import time, BattleModule, ChoiceModule, StartModule, IntroModule, EndGameModule
+import time, BattleModule, ChoiceModule, StartModule, IntroModule
 
 def main():
     player_name = StartModule.start_game()
@@ -15,4 +15,5 @@ def main():
             BattleModule.battle(game, player_name)
             break
 
-main()
+StartModule.start_game()
+

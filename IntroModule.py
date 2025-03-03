@@ -3,6 +3,8 @@
 
 #Chapter Introduction that are displayed on each chapter before the choice module
 
+import ChoiceModule
+
 def intro_chapter(chapter_number):
     chapter_intros = {
         1: "A dry desert night, the harrowing winds blow through the Dagobah space station.",
@@ -16,3 +18,4 @@ def intro_chapter(chapter_number):
         print(f"\n--- Chapter {chapter_number}: {chapter_intros[chapter_number]} ---")
     else:
         print("\n--- Unknown Chapter ---")
+

@@ -4,14 +4,15 @@
 #Sequential choice Module
 #Had help from family members familiar Python and some Google searches. I'll specify where
 
-import BattleModule, random, IntroModule, Main
+import BattleModule, IntroModule, Main
+
 class AdventureGame:
     def __init__(self):
         self.chapter = 1 #Starts at chapter 1
         self.options = {
             1: ["Speak to bartender", "Talk to tavern patrons"],
             2: ["Chase bandits", "Run to burning house"],
-            3: ["Take long way around", "Jumpt through shortcut"],
+            3: ["Take long way around", "Jump through shortcut"],
             4: ["Walk into castle", "Go into drawbridge tower"],
             5: ["Enter Boss room", "Pull suspicious torch lever"]
         }
@@ -27,12 +28,12 @@ class AdventureGame:
 ##Had to Google how to tackle this section, decided to use enumerate to loop through options starting at 1 so user sees numbered list
             print(f"{index}.{option}")
             
-        user_choice = input("Enter the number of your choise: ").strip()
+        user_choice = input("Enter the number of your choice: ").strip()
 
         if user_choice.isdigit() and 1 <= int(user_choice) <= len(current_options):
 ##States if choice is between 1 and number of options on the list
             selected_choice = current_options[int(user_choice) - 1]
-            self.process_choice(selected choice)
+            self.process_choice(selected_choice)
         else:
             print("Invalid choice! Please try again")
             self.choice_module() #Asks again for valid choice
