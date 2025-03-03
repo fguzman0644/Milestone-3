@@ -3,14 +3,14 @@
 
 #Battle Module
 
-import random
+import random, ChoiceModule
 
-def battle(restart chapter):
-    print("[A battle begins!]"
+def battle(restart, chapter):
+    print("[A battle begins!]")
     result = random.randint(1, 100)
     if result %2 == 1:
         print("You won the battle!")
-        choice_module()
+        ChoiceModule.choice_module()
     else:
         print("You lost the battle.")
         input(print("Game Over. (Try Again or Quit)")).strip().lower()
