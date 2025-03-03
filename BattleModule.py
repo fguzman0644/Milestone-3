@@ -5,7 +5,7 @@
 
 import random, ChoiceModule
 
-def battle(restart, chapter):
+def battle(restart_chapter):
     print("[A battle begins!]")
     result = random.randint(1, 100)
     if result %2 == 1:
@@ -13,7 +13,7 @@ def battle(restart, chapter):
         ChoiceModule.choice_module()
     else:
         print("You lost the battle.")
-        input(print("Game Over. (Try Again or Quit)")).strip().lower()
+        choice = input(print("Game Over. (Try Again or Quit)")).strip().lower()
         if choice == 'try again':
             restart_chapter()
         elif choice == 'quit':
