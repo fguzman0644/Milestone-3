@@ -3,16 +3,17 @@
 
 #Start Module
 
-import time
-import BattleModule
+import time, BattleModule
 import ChoiceModule
+
+# Declare global variable
+player_name = ""
 
 def start_game():
     global player_name
     player_name = input("Welcome bounty hunter! What is your name? ")
     print(f"Hello, {player_name}! Your adventure begins now.")
     time.sleep(1)
-   IntroModule()
+    IntroModule.intro_chapter(chapter_number)
     
-if __name__ == "__main__":
-    start_game()
+start_game()
