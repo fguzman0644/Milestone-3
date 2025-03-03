@@ -4,7 +4,9 @@
 #Sequential choice Module
 #Had help from family members familiar Python and some Google searches. I'll specify where
 
-def __init__(self):
+import BattleModule, random, IntroModule, Main
+class AdventureGame:
+    def __init__(self):
         self.chapter = 1 #Starts at chapter 1
         self.options = {
             1: ["Speak to bartender", "Talk to tavern patrons"],
@@ -14,7 +16,7 @@ def __init__(self):
             5: ["Enter Boss room", "Pull suspicious torch lever"]
         }
 
-def choice_module(self):
+    def choice_module(self):
 
         current_options = self.options.get(self.chapter, ["Option 1", "Option 2"])
 ##This gets the options for the current chapter
@@ -30,17 +32,17 @@ def choice_module(self):
         if user_choice.isdigit() and 1 <= int(user_choice) <= len(current_options):
 ##States if choice is between 1 and number of options on the list
             selected_choice = current_options[int(user_choice) - 1]
-            self.process_choice(selected_choice)
+            self.process_choice(selected choice)
         else:
             print("Invalid choice! Please try again")
             self.choice_module() #Asks again for valid choice
 
-def process_choice(self, choice):
+    def process_choice(self, choice):
         if choice == "Leave location":
             self.chapter += 1 if self.chapter < 5 else 0 #Moves user to next chapter if chapter less than 5. Asked family about this
         elif choice == "Return to last chapter":
-            self.chapter -= 1 if self.chapter > 1 else 0 #Moves user to last chapter if chapter greater than 1. Asked family about this
+            self.chapter -= 1 if self.chapter > 1 else 0 #Moves user to last chapter if chpater greater than 1. Asked family about this
         else:
             pass #Handle other choices here
 
-        self.choice_module() #continue to the next choice
+        self.ChoiceModule() #continue to the next choice
