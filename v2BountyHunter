@@ -1,0 +1,112 @@
+import BattleModule, sys, time, title
+
+print(title.title)
+time.sleep(2)
+print(title.title_info)
+time.sleep(2)
+player_name = str(input("What is your name, bountyhunter? "))
+
+class chapterContent():
+    def __init__(self, chapterIntro, chapterBattle):
+        self.chapterIntro = chapterIntro
+        self.chapterBattle = chapterBattle
+
+    def get_chapterIntro(self):
+        return self.chapterIntro
+
+    def get_chapterBattle(self):
+        return self.chapterBattle
+
+chapter1 = chapterContent("""A dry desert night, the harrowing winds blow through the Dagobah space station. 
+    Relaxing in a tavern, you discover that your home has been burnt to a crisp! You run and 
+    discover some bandits trying to make a run for it. They must know some information about what happened to 
+    your home""", """You discover that Count Dooku was responsible for burning your home. The bandits give you 
+    their hideout location; Mustafar.""")
+chapter2 = chapterContent("""You begin your journey to Mustafar; while crossing an asteroid field you're ambushed 
+    by space pirates. Quick! Act Fast!""", """Amazing! You dodged their lasers and made it back on course!""")
+chapter3 = chapterContent("""You land on a rock formation in the middle of a burning planet. The flowing 
+    lava from the volcanoes on the planet Mustafar on the outer rim of the galaxy create a creepy aura. 
+    You find a giant lava golem standing between you and the castle of Count Dooku.""", """You've defeated the
+    lava golem!""")
+chapter4 = chapterContent("""As you approach the hideout, the howling screams of terror and laughter escape 
+    the menacing castle on the mountain top. You burst through the front door to find Count Dooku's underlings 
+    laughing and bantering. They all look up and stare at you. You must act now!""", """You took them all down, 
+    you must be really strong!""")
+chapter5 = chapterContent("""You begin your ascent up the tower steps and hear laughing coming out of the tallest
+    room in the tower, a glowing light shows the shadow of Count Dooku, the man that destroyed your home. This 
+    ends now!""", """Congrats bounty hunter """ + player_name + """! You have claimed your vengance against Count 
+    Dooku for destroying your home.""")
+
+def beginGame(userchoice):
+    if userchoice == 'yes':
+        print(chapter1.get_chapterIntro())
+    elif userchoice == 'no':
+        print("Goodbye then, partner!")
+        sys.exit()
+    else:
+        print("Invalid choice! Please try again.")
+
+def battle(fightchoice):
+    if fightchoice == 'yes':
+        result = BattleModule.battle()
+        if result == BattleModule.wonBattle:
+            print("You won the battle!")
+            time.sleep(2)
+            return True
+        elif result == BattleModule.lostBattle:
+            print("You lost the battle.")
+            return False
+    elif fightchoice == 'no':
+        print("Goodbye then, bounty hunter!")
+        sys.exit()
+    else:
+        print("Invalid choice! Please try again.")
+        return battle(input("Fight battle? ").strip())
+
+def run_game():
+    chapter_number = 1
+
+    start_game = input("""Are you ready to start your adventure, """ + player_name + "? (Answer yes or no) ").strip()
+    time.sleep(2)
+    beginGame(start_game)
+
+    while True:
+        fightchoice = input("Fight battle?(yes or no) ").strip()
+        time.sleep(1)
+        battle_result = battle(fightchoice)
+
+        if battle_result:
+            if chapter_number == 1:
+                print(chapter1.get_chapterBattle())
+            elif chapter_number == 2:
+                print(chapter2.get_chapterBattle())
+            elif chapter_number == 3:
+                print(chapter3.get_chapterBattle())
+            elif chapter_number == 4:
+                print(chapter4.get_chapterBattle())
+            elif chapter_number == 5:
+                print(chapter5.get_chapterBattle())
+                sys.exit()
+
+            cont_choice = input("Do you want to continue to the next chapter? (Answer yes or no)").strip()
+            time.sleep(2)
+            if cont_choice.lower() != 'yes':
+                print("Goodbye then, partner!")
+                sys.exit()
+            time.sleep(5)
+
+            chapter_number += 1
+
+            if chapter_number == 2:
+                print(chapter2.get_chapterIntro())
+            elif chapter_number == 3:
+                print(chapter3.get_chapterIntro())
+            elif chapter_number == 4:
+                print(chapter4.get_chapterIntro())
+            elif chapter_number == 5:
+                print(chapter5.get_chapterIntro())
+        else:
+            print("The hunt ends here.")
+            sys.exit()
+
+run_game()
